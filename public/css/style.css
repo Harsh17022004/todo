@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.action-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vw;
+  position: absolute;
+  top: 20%;
+  right: 2%;
+}
+.check-btn button {
+  border: 0;
+  outline: 0;
+  height: 3vw;
+  width: 3vw;
+  font-size: 2vw;
+  border-radius: 50%;
+}
+
+.bg-side {
+  position: relative;
+}
+.bg-side img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.bg-side form {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+.bg-set {
+  background: url("../img/bg.jpg");
+  background-size: cover;
+  background-position: center;
+}

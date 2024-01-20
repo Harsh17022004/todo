@@ -1,0 +1,78 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+<body>
+  <div class="container-fluid d-flex">
+    <div class="container m-5 w-50">
+      <form action="/task/new" method="post">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+                name="task"
+              />
+              <label for="floatingInput">Enter your task</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-primary btn-lg">Add</button>
+          </div>
+        </div>
+      </form>
+      <% for(task of tasks){ %>
+      <div class="card mb-3 d-flex">
+        <div class="card-body">
+          <div class="action-btns">
+            <form
+              action="/task/<%= task._id %>/mark?_method=PATCH"
+              method="post"
+              class="check-btn"
+            >
+              <button
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                data-bs-title="Marks as completed"
+              >
+                <i class="fa-regular fa-circle-check"></i>
+              </button>
+            </form>
+            <form
+              action="/task/<%= task._id %>?_method=DELETE"
+              method="post"
+              class="check-btn"
+            >
+              <button
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                data-bs-title="Delete"
+              >
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </form>
+          </div>
+          <% if(task.state == "Incomplete"){ %>
+          <h5 class="card-title"><%= task.task %></h5>
+          <% } %> <% if(task.state == "Complete"){%>
+          <h5
+            class="card-title"
+            style="text-decoration: line-through; opacity: 0.7"
+          >
+            <%= task.task %>
+          </h5>
+          <% } %>
+          <p class="card-text"><%= task.state %></p>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <div class="container w-50 bg-side">
+      <img src="img/Work_7.jpg" alt="" srcset="" />
+      <form class="d-flex" role="search" action="/logout" method="post">
+        <button class="btn btn-outline-success" type="submit">logout</button>
+      </form>
+    </div>
+  </div>
+</body>
