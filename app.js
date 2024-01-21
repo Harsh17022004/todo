@@ -18,7 +18,9 @@ const { inLoggedIn } = require("./middlewares/isLoggedIn.js");
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/todo");
+  await mongoose.connect(
+    "mongodb+srv://hp17022004:WOF5upwTXvXPCKV4@cluster0.5rxgnzj.mongodb.net/?retryWrites=true&w=majority"
+  );
 }
 
 app.set("view engine", "ejs");
