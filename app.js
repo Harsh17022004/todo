@@ -19,7 +19,7 @@ main().catch((err) => console.log(err));
 
 async function main() {
   await mongoose.connect(
-    "mongodb+srv://hp17022004:WOF5upwTXvXPCKV4@cluster0.5rxgnzj.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://hp17022004:lx00njea0GASnKyc@cluster0.kv8itdp.mongodb.net/?retryWrites=true&w=majority"
   );
 }
 
