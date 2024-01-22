@@ -46,3 +46,17 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+@media (max-width: 600px) {
+  .bg-side img {
+    display: none;
+  }
+  .main-cont {
+    width: 100% !important;
+    margin: 10% !important;
+  }
+  .actionForm {
+    width: 100% !important;
+    margin: 5% !important;
+  }
+}
