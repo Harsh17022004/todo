@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -14,14 +18,27 @@ const LocalStrategy = require("passport-local");
 const userRouter = require("./routes/user.js");
 const ExpressError = require("./utils/ExpressError.js");
 const { inLoggedIn } = require("./middlewares/isLoggedIn.js");
+const MongoStore = require("connect-mongo");
+
+mongoUrl = process.env.ATLAS_LINK;
 
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(
-    "mongodb+srv://hp17022004:lx00njea0GASnKyc@cluster0.kv8itdp.mongodb.net/?retryWrites=true&w=majority"
-  );
+  await mongoose.connect(mongoUrl);
 }
+
+const store = MongoStore.create({
+  mongoUrl: mongoUrl,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", () => {
+  console.log("Error in mongo store", err);
+});
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -38,7 +55,8 @@ app.engine("ejs", engine);
 // express sesssion
 app.use(
   session({
-    secret: "keyboard cat",
+    store,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
