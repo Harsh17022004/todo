@@ -3,7 +3,6 @@ const router = express.Router();
 const taskSchema = require("../models/task.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const userSchema = require("../models/user.js");
-const task = require("../models/task.js");
 
 router.get(
   "/",

@@ -66,4 +66,8 @@ body {
     width: 7vw;
     font-size: 5vw;
   }
+  .flash-msg {
+    left: 20% !important;
+    width: auto !important;
+  }
 }
