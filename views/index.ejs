@@ -2,6 +2,14 @@
 
 <body>
   <div class="container-fluid d-flex">
+    <form
+      class="d-flex logoutForm"
+      role="search"
+      action="/logout"
+      method="post"
+    >
+      <button class="btn btn-outline-success" type="submit">logout</button>
+    </form>
     <div class="container m-5 w-50 main-cont">
       <form action="/task/new" method="post">
         <div class="row">
@@ -70,9 +78,6 @@
     </div>
     <div class="container w-50 bg-side">
       <img src="img/Work_7.jpg" alt="" srcset="" />
-      <form class="d-flex" role="search" action="/logout" method="post">
-        <button class="btn btn-outline-success" type="submit">logout</button>
-      </form>
     </div>
   </div>
 </body>

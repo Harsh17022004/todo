@@ -36,10 +36,11 @@ body {
   width: 100%;
   object-fit: cover;
 }
-.bg-side form {
+.logoutForm {
   position: absolute;
   top: 5%;
   right: 5%;
+  z-index: 100;
 }
 .bg-set {
   background: url("../img/bg.jpg");
@@ -48,15 +49,21 @@ body {
 }
 
 @media (max-width: 600px) {
-  .bg-side img {
+  .bg-side {
     display: none;
   }
   .main-cont {
     width: 100% !important;
-    margin: 10% !important;
+    margin: 5% !important;
+    margin-top: 30% !important;
   }
   .actionForm {
     width: 100% !important;
     margin: 5% !important;
+  }
+  .check-btn button {
+    height: 7vw;
+    width: 7vw;
+    font-size: 5vw;
   }
 }
